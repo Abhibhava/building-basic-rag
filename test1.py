@@ -47,6 +47,18 @@ def get_answer(question : str, retriever, llm) -> str :
     return llm(prompt)
 
 print("\n\n\n")
-answer_lst = get_answer("What is the capital of France?", retriever, qa_model)
 
-print(answer_lst[0]["generated_text"])
+
+choice = 'y'
+
+while(choice == 'y'):
+    if(choice == 'y'):
+        question = input("Enter your question(s)\n")
+        answer = get_answer(question, retriever, qa_model)
+        print(answer[0]["generated_text"])
+
+    print("Do you want to continue(y/n)?")
+    choice = input()
+    if(choice == 'n'):
+        break
+    
